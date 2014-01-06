@@ -141,8 +141,13 @@
 				//iterate over sheets
 				foreach($this->sheets as $sheet_name=>$sheet_data)
 				{
-					$sheet_name=$sheet_name==''?'New sheet':$sheet_name;
-					//render a single sheet
+					if ($sheet_name=='') {
+						//one sheet
+						$this->renderSheet($sheet_index,'New sheet',$this->sheets);
+						break;
+					}
+					
+					//multiple sheets: render a single sheet
 					if ($this->renderSheet($sheet_index,$sheet_name,$sheet_data))
 						$sheet_index++;
 				}
