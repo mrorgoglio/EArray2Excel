@@ -194,8 +194,7 @@
 				foreach ($headers as $h) {
 					$a=$a+1;
 					$cell = $this->objPHPExcel->getActiveSheet()->setCellValue($this->columnName($a)."1" ,ucfirst($h), true);
-					if ($a==1)
-						$this->objPHPExcel->getActiveSheet()->getStyle($this->columnName($a)."1")->getFont()->setBold(true);
+					$this->objPHPExcel->getActiveSheet()->getStyle($this->columnName($a)."1")->getFont()->setBold(true);
 				}
 					
 				//write body
