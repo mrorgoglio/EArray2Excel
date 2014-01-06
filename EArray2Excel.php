@@ -4,10 +4,9 @@
 	* @author Salvo Di Mare
 	* @license GNU v2
 	* @version 0.1
-	*
+	* 
 	* Inspired by Nikola Kostadinov's EExcelView extension
-	*/
-	
+	*/	
 	class EArray2Excel
 	{
 		//Document properties
@@ -91,10 +90,14 @@
 		 * 					the document description
 		 * @param string $category 
 		 * 					the document category
+		 * @param string $libPath
+		 * 					the path to the PHP excel lib 
 		 * 
 		 */
-		public function EArray2Excel($title=null, $creator=null, $subject=null, $description=null, $category=null)
+		public function EArray2Excel($title=null, $creator=null, $subject=null, $description=null, $category=null, $libPath=null)
 		{
+			if ($libPath)
+				$this->libPath=$libPath;
 			//Init
 			$this->init($title, $creator, $subject, $description, $category);
 		}
@@ -138,6 +141,7 @@
 				//iterate over sheets
 				foreach($this->sheets as $sheet_name=>$sheet_data)
 				{
+					$sheet_name=$sheet_name==''?'New sheet':$sheet_name;
 					//render a single sheet
 					if ($this->renderSheet($sheet_index,$sheet_name,$sheet_data))
 						$sheet_index++;
