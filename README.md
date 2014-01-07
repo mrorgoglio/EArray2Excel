@@ -35,7 +35,7 @@ EArray2Excel supports multiple sheets; in this case the associative array must b
 How to use it
 ============
 
-Requriments
+Requirements
 -----------
 
 * Yii 1.1 or above
